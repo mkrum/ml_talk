@@ -2,32 +2,10 @@
 
 from tensorflow.examples.tutorials.mnist import input_data
 import tensorflow as tf
-from sklearn import datasets
-from random import shuffle
+import ops
 
 #getting data
-iris = datasets.load_iris()
-iris_data = iris.data
-iris_target = iris.target
-
-#shuffle data
-
-c = list(zip(iris_data, iris_target))
-shuffle(c)
-iris_data, iris_target = zip(*c)
-
-
-#split the data
-def convert_to_one_hot(val, categories):
-    one_hot = [ 0 for x in range(categories) ]
-    one_hot[val] = 1
-    return one_hot
-
-train_iris_data = iris_data[:120]
-test_iris_data = iris_data[120:]
-
-train_iris_labels = [ convert_to_one_hot(x, 3) for x in iris_target[:120] ]
-test_iris_labels = [ convert_to_one_hot(x, 3) for x in iris_target[120:] ]
+test_iris_data, test_iris_labels, train_iris_data, train_iris_labels = ops.get_iris()
 
 #data variables
 parameters = 4
