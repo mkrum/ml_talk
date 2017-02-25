@@ -29,6 +29,18 @@ def get_iris():
         
     return train_iris_data, train_iris_labels, test_iris_data, test_iris_labels
 
+
+def get_flowers():
+    test_data = []
+    test_labels = []
+
+    train_data = []
+    train_labels = []
+    for f in range(17):
+        max_val = f * 80
+        min_val = (f - 1) * 80
+        
+
 #split the data
 def convert_to_one_hot(val, categories):
     one_hot = [ 0 for x in range(categories) ]
