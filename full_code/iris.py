@@ -25,7 +25,7 @@ train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)
 #train model
 sess = tf.InteractiveSession()
 tf.global_variables_initializer().run()
-for i in range(1000):
+for _ in range(1000):
     sess.run(train_step, feed_dict={x: train_iris_data, y_: train_iris_labels})
 
 
